@@ -1,13 +1,7 @@
-from db.run_sql import run_sql
+from qa.checks_raw import RAW_LISTENING_CHECKS
+from qa.engine import run_checks
 
-query = """
-SELECT
-    COUNT(*) AS total_rows,
-    MIN(played_at) AS min_played_at,
-    MAX(played_at) AS max_played_at
-FROM raw_listening_events;
-"""
+results = run_checks(RAW_LISTENING_CHECKS, "raw_listening_events")
 
-result = run_sql(query)
-
-print(result)
+for r in results:
+    print(r)
