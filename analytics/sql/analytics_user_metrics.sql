@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS analytics.analytics_user_metrics;
 CREATE TABLE analytics.analytics_user_metrics AS 
 
 SELECT 
