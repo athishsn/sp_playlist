@@ -10,7 +10,7 @@ def main():
     )
 
     run_id =results[0][0]
-    
+    print(run_id)
     run_status, qa_failures = evaluate_run_status(run_id)
     print(f"Pipeline QA Status: {run_status}")
 
