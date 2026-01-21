@@ -164,14 +164,14 @@ def _(user_metrics, hourly):
     insight = f"Your peak listening hour is around **{peak_hour}:00**. You are a **{persona}**."
 
 
-    return insight, total_plays, unique_artists, persona, insight
+    return insight, total_plays, unique_artists, persona,
 
     
 
 
 
 @app.cell
-def _(insight, top_artists, trend, user_metrics, hourly, weekday_weekend, persona, insight):
+def _(insight, top_artists, trend, user_metrics, hourly, weekday_weekend, persona):
     import marimo as mo
 
     mo.vstack([
