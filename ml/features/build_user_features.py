@@ -27,7 +27,7 @@ def main():
             artist_name,
             track_id, 
             played_at
-        FROM analytics.analtyics_listening_events     
+        FROM analytics.analytics_listening_events  
                      """, conn)
     
     conn.close()

@@ -23,7 +23,7 @@ def main():
             user_id, 
             track_id, 
             artist_name, 
-            played_at, 
+            played_at 
         FROM analytics.analytics_listening_events
         ORDER BY user_id, played_at 
                      """, conn)
@@ -40,9 +40,9 @@ def main():
     
     # group by on session length- count of songs
     # unique artists and start hour of sessions based on user id
-    sessions = df.groupby(['user_id']['session_id']).agg(
+    sessions = df.groupby(['user_id','session_id']).agg(
         session_length=('track_id','count'),
-        unique_artists = ('artist_name','nuninque'),
+        unique_artists = ('artist_name','nunique'),
         session_start_hour=('played_at',lambda x:x.iloc[0].hour),
     ).reset_index()
     

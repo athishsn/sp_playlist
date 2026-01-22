@@ -1,0 +1,2 @@
+user_id,total_plays,unique_artist,unique_tracks,exploration_ratio,night_listening_ratio,recency_weighted_plays
+current_user,60,42,56,0.933,0.0,49.91
