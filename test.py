@@ -1,7 +1,29 @@
-from qa.checks_raw import RAW_LISTENING_CHECKS
-from qa.engine import run_checks
+import marimo
 
-results = run_checks(RAW_LISTENING_CHECKS, "raw_listening_events")
+__generated_with = "0.19.4"
+app = marimo.App()
 
-for r in results:
-    print(r)
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
+    import marimo as mo
+    return (mo,)
+
+
+@app.cell
+def _(mo):
+    _df = mo.sql(
+        f"""
+        SELECT * FROM
+        """
+    )
+    return
+
+
+if __name__ == "__main__":
+    app.run()
