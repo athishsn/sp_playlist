@@ -91,12 +91,12 @@ Local Postgres runs via Docker for reproducibility.
 
 ** Start DB **
 
-docker compose up -d
+        docker compose up -d
 
 
 ** Connect **
 
-docker exec -it spotify_postgres psql -U postgres -d spotify
+        docker exec -it spotify_postgres psql -U postgres -d spotify
 
 #### Core Tables
 - Raw Listening Events
@@ -171,7 +171,7 @@ Update ingestion state
 
 
 **Run**
-python -m ingestion.ingestion_listening
+        python -m ingestion.ingestion_listening
 
 - ingest_audio_features.py (Best-Effort)
 
@@ -184,7 +184,7 @@ Non-blocking for core pipeline
 
 **Run**
 
-`code` python -m ingestion.ingest_audio_features
+    python -m ingestion.ingest_audio_features
 
 
 Failures here do not break the platform.
@@ -218,7 +218,7 @@ Example:
 }
 
 **Run QA**
-python -m qa.run_qa
+        python -m qa.run_qa
 
 ## Analytics Layer
 Purpose
@@ -236,8 +236,9 @@ User-level aggregates
 Artist-level stats
 
 Build Analytics Tables
-python -m analytics.pipelines.build_analytics_tables
-python -m analytics.pipelines.refresh_user_metrics
+
+        python -m analytics.pipelines.build_analytics_tables
+        python -m analytics.pipelines.refresh_user_metrics
 
 
 ## ML & Feature Engineering
@@ -250,18 +251,19 @@ Used for:
 Behavioral analysis
 Contextual clustering
 
-Feature Engineering
+## Feature Engineering
+
 Located in ml/features/
 
 Features include:
-Session length
-Unique artists
-Start hour
-Recency decay
+    Session length
+    Unique artists
+    Start hour
+    Recency decay
 
 **Run**
 
-python -m ml.features.build_user_features
+        python -m ml.features.build_user_features
 
 ### Clustering & Personas
 
@@ -275,8 +277,8 @@ Human-readable persona labels
 
 **Run**
 
-python -m ml.clustering.session_clustering
-python -m ml.clustering.persona_labels
+        python -m ml.clustering.session_clustering
+        python -m ml.clustering.persona_labels
 
 ## Recommendations
 
@@ -288,7 +290,7 @@ Persona-aware rules
 Explainable logic (no black boxes)
 
 
-playlist_generator.py
+- playlist_generator.py
 
 Generates playlists based on:
 
@@ -298,7 +300,7 @@ Artist co-occurrence
 
 **Run**
 
-python -m ml.recommenders.playlist_generator
+        python -m ml.recommenders.playlist_generator
 
 ## Dashboards (Marimo)
 Why Marimo?
@@ -321,32 +323,34 @@ Playlists
 
 **Run**
 
-marimo run analytics/dashboards/overview.py
-marimo run analytics/dashboards/playlist.py
+        marimo run analytics/dashboards/overview.py
+        marimo run analytics/dashboards/playlist.py
 
-    🔁 Typical End-to-End Flow
-    # 1. Start DB
-    docker compose up -d
+-------------------------------------------------------------------------------
 
-    # 2. Ingest data
-    python -m ingestion.ingestion_listening
+        🔁 Typical End-to-End Flow
+        # 1. Start DB
+        docker compose up -d
 
-    # 3. Run QA
-    python -m qa.run_qa
+        # 2. Ingest data
+        python -m ingestion.ingestion_listening
 
-    # 4. Build analytics
-    python -m analytics.pipelines.build_analytics_tables
-    python -m analytics.pipelines.refresh_user_metrics
+        # 3. Run QA
+        python -m qa.run_qa
 
-    # 5. Build ML features
-    python -m ml.features.build_user_features
+        # 4. Build analytics
+        python -m analytics.pipelines.build_analytics_tables
+        python -m analytics.pipelines.refresh_user_metrics
 
-    # 6. Cluster sessions
-    python -m ml.clustering.session_clustering
-    python -m ml.clustering.persona_labels
+        # 5. Build ML features
+        python -m ml.features.build_user_features
 
-    # 7. Generate playlist
-    python -m ml.recommenders.playlist_generator
+        # 6. Cluster sessions
+        python -m ml.clustering.session_clustering
+        python -m ml.clustering.persona_labels
 
-    # 8. Launch dashboards
-    marimo run analytics/dashboards/overview.py
+        # 7. Generate playlist
+        python -m ml.recommenders.playlist_generator
+
+        # 8. Launch dashboards
+        marimo run analytics/dashboards/overview.py
