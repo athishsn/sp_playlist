@@ -171,6 +171,7 @@ Update ingestion state
 
 
 **Run**
+
         python -m ingestion.ingestion_listening
 
 - ingest_audio_features.py (Best-Effort)
@@ -218,6 +219,7 @@ Example:
 }
 
 **Run QA**
+
         python -m qa.run_qa
 
 ## Analytics Layer
@@ -235,9 +237,10 @@ User-level aggregates
 
 Artist-level stats
 
-Build Analytics Tables
+## Build Analytics Tables
 
         python -m analytics.pipelines.build_analytics_tables
+
         python -m analytics.pipelines.refresh_user_metrics
 
 
@@ -278,6 +281,7 @@ Human-readable persona labels
 **Run**
 
         python -m ml.clustering.session_clustering
+
         python -m ml.clustering.persona_labels
 
 ## Recommendations
