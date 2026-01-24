@@ -43,44 +43,44 @@ Spotify is treated as an external, best-effort data source, similar to how third
 
 ## Repository Structure
 
-spotify_playlist/
-│
-├── ingestion/                # Data ingestion layer
-│   ├── spotify_client.py     # Spotify API client
-│   ├── ingestion_listening.py# Recently-played ingestion job
-│   ├── ingest_audio_features.py (best-effort)
-│   ├── state_store.py        # Incremental ingestion state
-│   ├── config.py             # Environment configuration
-│   └── __init__.py
-│
-├── db/                       # Database schemas
-│   ├── schema.sql            # Raw tables
-│   ├── analytics.sql         # Analytics tables
-│   └── audio_features.sql    # Audio feature table
-│
-├── qa/                       # Data quality framework
-│   ├── qa_engine.py          # Generic QA execution engine
-│   ├── checks.py             # Table-specific checks
-│   ├── run_qa.py             # QA entrypoint
-│   └── __init__.py
-│
-├── analytics/
-│   ├── sql/                  # Analytics SQL transformations
-│   ├── pipelines/            # Analytics build scripts
-│   └── dashboards/           # Marimo dashboards
-│
-├── ml/
-│   ├── features/             # Feature engineering
-│   ├── clustering/           # Session clustering & personas
-│   └── recommenders/         # Playlist generation logic
-│
-├── utils/
-│   └── db.py                 # Shared DB utilities
-│
-├── docker-compose.yml        # Local Postgres
-├── Dockerfile                # (to be added)
-├── requirements.txt
-└── README.md
+        spotify_playlist/
+        │
+        ├── ingestion/                # Data ingestion layer
+        │   ├── spotify_client.py     # Spotify API client
+        │   ├── ingestion_listening.py# Recently-played ingestion job
+        │   ├── ingest_audio_features.py (best-effort)
+        │   ├── state_store.py        # Incremental ingestion state
+        │   ├── config.py             # Environment configuration
+        │   └── __init__.py
+        │
+        ├── db/                       # Database schemas
+        │   ├── schema.sql            # Raw tables
+        │   ├── analytics.sql         # Analytics tables
+        │   └── audio_features.sql    # Audio feature table
+        │
+        ├── qa/                       # Data quality framework
+        │   ├── qa_engine.py          # Generic QA execution engine
+        │   ├── checks.py             # Table-specific checks
+        │   ├── run_qa.py             # QA entrypoint
+        │   └── __init__.py
+        │
+        ├── analytics/
+        │   ├── sql/                  # Analytics SQL transformations
+        │   ├── pipelines/            # Analytics build scripts
+        │   └── dashboards/           # Marimo dashboards
+        │
+        ├── ml/
+        │   ├── features/             # Feature engineering
+        │   ├── clustering/           # Session clustering & personas
+        │   └── recommenders/         # Playlist generation logic
+        │
+        ├── utils/
+        │   └── db.py                 # Shared DB utilities
+        │
+        ├── docker-compose.yml        # Local Postgres
+        ├── Dockerfile                # (to be added)
+        ├── requirements.txt
+        └── README.md
 
 
 
