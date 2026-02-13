@@ -77,7 +77,7 @@ def run_checks(checks: List[Dict[str, Any]], table_name: str):
 
                 else:
                     raise ValueError(
-                        f"Invalid mode '{mode}' for check '{check['check-type']}'"
+                        f"Invalid mode '{mode}' for check '{check['check_type']}'"
                     )
 
                 # Persist QA result

@@ -1,0 +1,18 @@
+# Database
+psycopg2-binary==2.9.9
+
+# HTTP & API
+requests==2.32.3
+
+# Data processing
+pandas==2.2.2
+numpy==1.26.4
+
+# Machine Learning
+scikit-learn==1.5.1
+
+# Dashboards
+marimo==0.10.19
+
+# Timezone handling
+python-dateutil==2.9.0.post0

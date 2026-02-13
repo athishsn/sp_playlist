@@ -4,15 +4,23 @@ services:
   postgres:
     image: postgres:15
     container_name: spotify_postgres
-    ports:
-      - "5433:5432"
     environment:
       POSTGRES_DB: spotify
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    restart: unless-stopped
+
+  data-pipeline:
+    build: .
+    container_name: spotify_pipeline
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    command: python -m ingestion.ingestion_listening
 
 volumes:
   postgres_data:

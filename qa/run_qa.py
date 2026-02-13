@@ -8,8 +8,10 @@ def main():
         RAW_LISTENING_CHECKS,
         table_name="raw_listening_events"
     )
+    if not results:
+        raise RuntimeError("QA produced no results; verify checks configuration.")
 
-    run_id =results[0][0]
+    run_id = results[0][0]
     print(run_id)
     run_status, qa_failures = evaluate_run_status(run_id)
     print(f"Pipeline QA Status: {run_status}")

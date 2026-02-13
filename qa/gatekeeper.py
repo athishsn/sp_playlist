@@ -42,7 +42,7 @@ def evaluate_run_status(run_id):
                 return "FAILED" , fail_count
             
             if warn_count > 0 :
-                return "PARTIAl", 0
+                return "PARTIAL", 0
             
             
             return "SUCCESS", 0 
